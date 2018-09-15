@@ -1,0 +1,92 @@
+
+
+<div class="container-fluid" style="padding-top: 10px">
+
+    <div class="row">
+        <div class="col-sm-3" style="background-color:white; margin-left:50px; border:0px solid;border-radius: 5px">
+
+            <table class="table table-user-information" >
+                <tr>
+                    <th colspan="2" align="center">Account Information</th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td>UserName:</td>
+                        <td>{{user.userName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email-Id:</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>{{user.password}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-3" style="background-color:white;margin-left: 125px;border:0px solid;border-radius: 5px">
+            <table class="table table-user-information">
+                <tr>
+                    <th colspan="2" align="center">Personal Information</th>
+                </tr>
+                <tbody>
+                <tr>
+                    <td>FirstName</td>
+                    <td>{{user.firstName}}</td>
+                </tr>
+                <tr>
+                    <td>LastNmae</td>
+                    <td>{{user.lastName}}</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>{{user.gender}}</td>
+                </tr>
+                <tr>
+                    <td>Date Of Birth</td>
+                    <td>{{user.dob}}</td>
+                </tr>
+                <tr>
+                    <td>Adress:</td>
+                    <td>{{user.address}}</td>
+                </tr>
+                <tr>
+                    <td>Phone No.:</td>
+                    <td>{{user.mobile}}</td>
+                </tr>
+                <tr>
+                    <td>Prefered Contact Method</td>
+                    <td>{{user.prefContactNumber}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-3" style="background-color:white; margin-left:100px;border:0px solid;border-radius: 5px">
+            <table class="table table-user-information">
+                <tr>
+                    <th colspan="2" align="center">Payment Information</th>
+                </tr>
+                <tbody>
+                <tr>
+                    <td>Payment Type</td>
+                    <td>{{user.cardType}}</td>
+                </tr>
+                <tr>
+                    <td>Card Holder Name</td>
+                    <td>{{user.cardHolderName}}</td>
+                </tr>
+                <tr>
+                    <td>Card Number</td>
+                    <td>{{user.cardNumber}}</td>
+                </tr>
+                <tr>
+                    <td>Expiry Date</td>
+                    <td>{{user.cardExpiryDate}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: crimson;
+}
+.main-div {
+    background: #ffffff none repeat scroll 0 0;
+    border-radius: 10px;
+    margin: 10px auto 30px;
+    max-width: 38%;
+    padding: 50px 70px 70px 71px;
+}
+.bground{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+}
+h5{
+    color: navy;
+    text-align: center;
+}
+label{
+    color: darkcyan;
+    font-weight: bold;
+    font-family: "Eras Bold ITC";
+}

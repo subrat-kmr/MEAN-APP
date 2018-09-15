@@ -1,0 +1,303 @@
+<div class="container" style="margin-top: 30px">
+    <div class="row">
+        <div class="col-sm">
+
+            <div class="bground">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: white">Resistration Form </h5>
+                    <div class="progress" align="center" style="margin-bottom: 30px">
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                             align="center"
+                             ng-style="{'width': registerViewScope.activeGroup.width+'%'}"
+                             role="progressbar"
+                             aria-valuenow="{{registerViewScope.activeGroup.width}}"
+                             aria-valuemin="0"
+                             aria-valuemax="100" required >
+                        </div>
+                    </div>
+                    <form name="frmHome" class="main-div" accept-charset="utf-8" novalidate autocomplete="off">
+                        <!--First Page Start-->
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.one">
+                            <h5 class="card-title">Account Information </h5>
+                            <label for="UserName">User name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="UserName"
+                                   name="name"
+                                   ng-model="registerViewScope.user.userName"
+                                   placeholder="Enter User name"
+                                   ng-minlength="4"
+                                   ng-maxlength="20"
+                                   required
+                                   ng-pattern="uname">
+                                   <span class="text-danger" ng-if="frmHome.name.$error.minlength">* Name Is Too Short</span>
+                                   <!--<span class="text-danger" ng-if="frmHome.name.$error.required && frmHome.name.$touched">Name can not be Empty</span>-->
+                            <span class="text-danger" ng-if="frmHome.name.$error.required && frmHome.name.$touched">* Name is required.</span>
+                        </div>
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.one">
+                            <label for="Email">Email address</label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="Email"
+                                   name="email"
+                                   ng-model="registerViewScope.user.email"
+                                   placeholder="Enter email"
+                                   required>
+                            <div ng-show="frmHome.$submitted || frmHome.email.$touched">
+                                <span class="text-danger" ng-if="frmHome.email.$touched && frmHome.email.$error.required">* Email Required</span>
+                                <span class="text-danger" ng-if="frmHome.email.$error.email">* Invalid Email</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.one">
+                            <label for="Password">Password</label>
+                            <input type="password"
+                                   class="form-control"
+                                   id="Password"
+                                   name="password"
+                                   ng-model="registerViewScope.user.password"
+                                   placeholder="Password" required
+                                   ng-minlength="6"
+                                   ng-maxlength="20"
+                                   ng-pattern="passwordFormat">
+                                <div ng-show="frmHome.$submitted || frmHome.password.$touched">
+                                    <span class="text-danger" ng-show="frmHome.password.$error.minlength"><error>* 6 to 20 characters, one numeric digit, one upper case letter, one lower case letter and a special character</error></span>
+                                    <span class="text-danger" ng-show="frmHome.password.$error.maxlength"><error>* 6 to 20 characters, one numeric digit, one upper case letter, one lower case letter and a special character</error></span>
+                                    <span class="text-danger" ng-if="frmHome.password.$error.required && frmHome.password.$touched">* Password Mandatory</span>
+                                    <span class="text-danger" ng-show="frmHome.password.$error.pattern">* Password Strength Weak</span>
+                                    <span class="text-success" ng-show="frmHome.password.$valid">* Password Strength strong</span>
+                                </div>
+                            </div>
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.one">
+                            <label for="CNFPassword">Confirm Password</label>
+                            <input type="password"
+                                   class="form-control"
+                                   id="CNFPassword"
+                                   name="confirmPassword"
+                                   ng-model="registerViewScope.user.confirmPassword"
+                                   placeholder="Confirm Password" required
+                                   ng-pattern="password">
+                            <div ng-show="frmHome.$submitted || frmHome.confirmPassword.$touched">
+                                <span class="text-danger" ng-show="frmHome.password.$error.pattern">* Password Must Be Same</span>
+                            </div>
+                        </div>
+                        <!--First Page Ends -->
+
+
+                        <!--Second Page Start-->
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.two">
+                            <h5 class="card-title">Personal Information </h5>
+                            <label for="firstName">First name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="firstName"
+                                   name="firstName"
+                                   ng-model="registerViewScope.user.firstName"
+                                   placeholder="Enter First Name" required
+                                   ng-minlength="3"
+                                    ng-pattern="fname">
+                            <!--<span class="text-danger"ng-show="frmHome.firstName.$error.minlength">* Name is Too Short</span>-->
+                            <span class="text-danger" ng-show="frmHome.firstName.$error.pattern">* Only Characters are Allowed</span>
+                            <span class="text-danger" ng-if="frmHome.firstName.$error.required && frmHome.firstName.$touched">* FirstName can not be Empty</span>
+                        </div>
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.two">
+                            <label for="lastName">Last name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="lastName"
+                                   name="lastName"
+                                   ng-model="registerViewScope.user.lastName"
+                                   placeholder="Enter Last Name" required
+                                   ng-minlength="3"
+                                   ng-pattern="lname">
+                            <!--<span class="text-danger"ng-show="frmHome.lastName.$error.minlength">Name is Too Short</span>-->
+                            <span class="text-danger" ng-show="frmHome.lastName.$error.pattern">* Only Characters are Allowed</span>
+                            <span class="text-danger" ng-if="frmHome.lastName.$error.required && frmHome.lastName.$touched">* LastName can not be Empty</span>
+                        </div>
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.two">
+                            <label for="gender">Please Select Your Gender</label>
+                            <select class="form-control"
+                                    id="gender"
+                                    name="gender"
+                                    ng-model="registerViewScope.user.gender"
+                                    placeholder="Select your gender" required>
+                                <option value="" disabled selected>Select your Option</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <span class="text-danger" ng-if="frmHome.gender.$invalid && frmHome.gender.$touched">* This field can't be Empty</span>
+                        </div>
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.two">
+                            <label for="dob">DOB</label>
+                            <input type="date"
+                                   class="form-control"
+                                   id="dob"
+                                   name="dob"
+                                   ng-model="registerViewScope.user.dob"
+                                   placeholder="DD--MM--YYYY" required>
+                            <span class="text-danger" ng-if="frmHome.dob.$error.required && frmHome.dob.$touched">* Date can not be Empty</span>
+                        </div>
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.two">
+                            <label for="address">Adress</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="address"
+                                   name="address"
+                                   ng-model="registerViewScope.user.address"
+                                   placeholder="Enter Your Address" required>
+                            <span class="text-danger" ng-if="frmHome.address.$error.required && frmHome.address.$touched">* Address can not be Empty</span>
+                        </div>
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.two">
+                            <label for="phn">Phone No.</label>
+                            <input type="number"
+                                   class="form-control"
+                                   id="phn"
+                                   name="mobile"
+                                   ng-model="registerViewScope.user.mobile"
+                                   placeholder="Enter Your Ph No." required
+                                   ng-pattern="phonex">
+                            <span class="text-danger" ng-if="frmHome.mobile.$error.required && frmHome.mobile.$touched">* Phone No. is Mandatory</span>
+                            <span class="text-danger" ng-show="frmHome.mobile.$error.pattern">* Only Indian number is Allowed</span>
+                        </div>
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.two">
+                            <label>Prefered Contact Method.</label>
+                            <span class="form-check">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="prefContact"
+                                       id="exampleRadios1"
+                                       ng-model="registerViewScope.user.prefContactNumber"
+                                       value="Email" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Email
+                                </label>
+                            </span>
+                            <span class="form-check">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="prefContact"
+                                       id="exampleRadios2"
+                                       ng-model="registerViewScope.user.prefContactNumber"
+                                       value="Mobile">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Mobile
+                                </label>
+                            </span>
+                        </div>
+
+                        <!--Second Page Ends-->
+
+                        <!--Third Page Start-->
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.three">
+                            <h5 class="card-title">Payment Details : </h5>
+                            <label for="pay">Payment Method</label>
+                            <select class="form-control"
+                                    id="pay"
+                                    name="payMethod"
+                                    ng-model="registerViewScope.user.cardType"
+                                    placeholder="Select your Payment Method" required>
+                                <option value="" disabled selected>Select your Option</option>
+                                <option value="Maestro Card">Maestro Card</option>
+                                <option value="Visa Card">Visa Card</option>
+                            </select>
+                            <span class="text-danger" ng-if="frmHome.payMethod.$invalid && frmHome.payMethod.$touched">* This field can't be Empty</span>
+                        </div>
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.three">
+                            <label for="cardname">Card Holder Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="cardname"
+                                   name="cardHolderName"
+                                   ng-model="registerViewScope.user.cardHolderName"
+                                   placeholder="Card Holder Name" required
+                                    ng-pattern="chname">
+                            <span class="text-danger" ng-show="frmHome.cardHolderName.$error.pattern">* Only Character are Allowed</span>
+                            <span class="text-danger" ng-if="frmHome.cardHolderName.$error.required && frmHome.cardHolderName.$touched">* Name can not be Empty</span>
+                        </div>
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.three">
+                            <label for="cardno">Card Number</label>
+                            <input type="number"
+                                   class="form-control"
+                                   id="cardno"
+                                   name="cardNumber"
+                                   ng-model="registerViewScope.user.cardNumber"
+                                   placeholder="Enter 16 digit card Number" required
+                                   ng-pattern="cardno">
+                            <span class="text-danger" ng-if="frmHome.cardNumber.$error.required && frmHome.cardNumber.$touched">* Card no can not be Empty</span>
+                            <span class="text-danger" ng-show="frmHome.cardNumber.$error.pattern">* Card No Must Be 16 Digit</span>
+                        </div>
+
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.three">
+                            <label for="cvv">CVV</label>
+                            <input type="password"
+                                   class="form-control"
+                                   id="cvv"
+                                   name="cvv"
+                                   ng-model="registerViewScope.user.cvv"
+                                   placeholder="Enter Your CVV Number" required
+                                   ng-pattern="cvvno">
+                            <span class="text-danger" ng-if="frmHome.cvv.$error.required && frmHome.cvv.$touched">* Cvv No can not be Empty</span>
+                            <span class="text-danger" ng-if="frmHome.cvv.$error.pattern">* Please Enter your Three Digit CVV Number</span>
+                        </div>
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.three">
+                            <label for="expDate">Expiry Date</label>
+                            <input type="date"
+                                   class="form-control"
+                                   id="expDate"
+                                   name="cardExp"
+                                   ng-model="registerViewScope.user.cardExpiryDate"
+                                   placeholder="MM-YY" required>
+                            <span class="text-danger" ng-if="frmHome.cardExp.$error.required && frmHome.cardExp.$touched">* Expiry Date can't be Empty</span>
+                        </div>
+                        <div class="form-group" ng-if="registerViewScope.activeGroup.three">
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       name="terms"
+                                       ng-model="registerViewScope.user.terms"
+                                       id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Agree on terms.
+                                </label>
+                            </div>
+                        </div>
+                        <!--Third Page Ends-->
+
+                        <div class="button-container">
+                            <button type="button"
+                                    class="btn btn-outline-primary btn-block"
+                                    ng-if="!registerViewScope.activeGroup.one"
+                                    ng-click="registerViewScope.prev(user)">Prev
+                            </button>
+                            <span>&nbsp;</span>
+                            <button type="button"
+                                    class="btn btn-outline-primary btn-block"
+                                    ng-if="!registerViewScope.activeGroup.three"
+                                    ng-click="registerViewScope.next(user)"
+                                    ng-disabled="frmHome.$invalid"
+                            >Next
+                            </button>
+                            <span>&nbsp;</span>
+                            <button type="button"
+                                    class="btn btn-outline-success btn-block"
+                                    ng-if="registerViewScope.activeGroup.three"
+                                    ng-click="registerViewScope.submit(user)"
+                                    ng-disabled="frmHome.$invalid">Register
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
